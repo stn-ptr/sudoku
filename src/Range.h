@@ -8,12 +8,13 @@
 #ifndef RANGE_H_
 #define RANGE_H_
 
+#include "Field.h"
+
 namespace Sudoku {
-typedef int FIELD;
 
 class Range {
 	int s;		// size: number of fields
-	int **f;	// pointers to fields in this range
+	Field **f;	// pointers to fields in this range
 
 	int countValue(int);
 
@@ -21,8 +22,8 @@ public:
 	Range();
 	virtual ~Range();
 
-	void setFieldPtr(int, int*);
-	int* getFieldPtr(int);
+	void setFieldPtr(int, Field*);
+	Field* getFieldPtr(int);
 
 	bool verify(void);
 };

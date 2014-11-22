@@ -7,7 +7,7 @@
 
 #include "Board.h"
 
-using namespace Sudoku;
+//using namespace Sudoku;
 
 namespace Sudoku {
 
@@ -16,7 +16,7 @@ Board::Board(void){
 	n = int(sqrt(double(s)));
 	m = s * s;
 
-	fields = new int[m];
+	fields = new Field[m];
 	rows = new ROW*[s];
 	columns = new COLUMN*[s];
 	blocks = new BLOCK*[s];
@@ -38,7 +38,7 @@ Board::Board(std::istream &is) {
 	n = int(sqrt(double(s)));
 	m = s * s;
 
-	fields = new int[m];
+	fields = new Field[m];
 
 
 	rows = new ROW*[s];
@@ -72,16 +72,16 @@ int Board::getSize(void){
 }
 
 int Board::getFieldValue(int index){
-	return fields[index];
+	return fields[index].value;
 }
 
 int Board::getFieldValue(int row, int column){
-	return fields[row * s + column];
+	return fields[row * s + column].value;
 }
 
 void Board::load(std::istream &is){
 	for (int i = 0; i < m; i++)
-		is >> fields[i];
+		is >> fields[i].value;
 }
 
 void Board::solve(){
@@ -96,22 +96,26 @@ int Board::guess_brute(int idx){
 	if (idx >= m)
 		return s + 1;
 
-	if (fields[idx] == 0){
-		int orgval = fields[idx];
+	if (fields[idx].value == 0){
+		int orgval = fields[idx].value;
 		int guess = 1;
 
 		do{
-			fields[idx] = guess;
-			if (rows[getRowIdx(idx)]->verify() && columns[getColumnIdx(idx)]->verify() && blocks[getBlockIdx(idx)]->verify() && guess_brute(idx + 1) > 0)
+			fields[idx].value = guess;
+			bool rowValid = rows[getRowIdx(idx)]->verify();
+			bool colValid = columns[getColumnIdx(idx)]->verify();
+			bool blkValid = blocks[getBlockIdx(idx)]->verify();
+
+			if (rowValid && colValid && blkValid && guess_brute(idx + 1) > 0)
 				return guess;
 		} while (guess++ < s);
 
-		fields[idx] = orgval;
+		fields[idx].value = orgval;
 		return 0;
 
 	} else {
 		if (guess_brute(idx + 1) > 0)
-			return fields[idx];
+			return fields[idx].value;
 		else
 			return 0;
 	}

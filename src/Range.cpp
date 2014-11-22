@@ -11,18 +11,18 @@ namespace Sudoku {
 
 Range::Range() {
 	s = 9;
-	f = new int*[s];
+	f = new Field*[s];
 }
 
 Range::~Range() {
 	delete[] f;
 }
 
-void Range::setFieldPtr(int index, int* address){
+void Range::setFieldPtr(int index, Field* address){
 	*(f+index) = address;
 }
 
-int *Range::getFieldPtr(int index){
+Field *Range::getFieldPtr(int index){
 	return *(f+index);
 }
 
@@ -34,9 +34,9 @@ int *Range::getFieldPtr(int index){
  */
 bool Range::verify(){
 	bool res = true;
-	for (int i = 1; i <= s; i++)
+	for (int i = 1; i <= s; i++){
 		res = res && (countValue(i) <= 1);
-
+	}
 	return res;
 }
 
@@ -45,8 +45,9 @@ bool Range::verify(){
  */
 int Range::countValue(int value){
 	int res = 0;
-	for (int i = 0; i < s; i++)
-		if (**(f+i) == value) res++;
+	for (int i = 0; i < s; i++){
+		if ((*(f+i))->value == value) res++;
+	}
 
 	return res;
 }

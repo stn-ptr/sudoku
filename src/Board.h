@@ -11,6 +11,7 @@
 #include <istream>
 #include <cmath>
 #include "Range.h"
+#include "Field.h"
 
 namespace Sudoku {
 
@@ -24,12 +25,12 @@ class Board {
 	int n;	// block size
 	int m;	// number of fields
 
-	FIELD	*fields;
+	Field	*fields;
 	ROW		**rows;
 	COLUMN	**columns;
 	BLOCK	**blocks;
 
-	FIELD 	**getField(int, int);
+	Field 	**getField(int, int);
 	ROW		*getRow(int);
 	COLUMN	*getColumn(int);
 	BLOCK	*getBlock(int, int);
