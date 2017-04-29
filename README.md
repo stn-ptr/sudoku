@@ -10,6 +10,8 @@ This Project is designed to solve Sudoku puzzles.
 
 ### How do I get set up? ###
 
+This repository is an Eclipse project, it was originally stored in Subversion.
+
 * Summary of set up
 * Configuration
 * Dependencies
