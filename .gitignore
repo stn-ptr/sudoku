@@ -1,8 +1,19 @@
-# Visual Studio
+# Eclipse
+.metadata
+.settings
+.project
+.cproject
 
+# IntelliJ IDEA
+.idea
+
+#Visual Studio
 .vs
+Debug
+Release
+
 *.sln
 *.vcxproj*
 
-Release
-Debug
+# Visual Studio code
+.vscode
