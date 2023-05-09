@@ -17,3 +17,6 @@ Release
 
 # Visual Studio code
 .vscode
+
+# Binaries
+sudoku
