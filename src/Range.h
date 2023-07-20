@@ -1,10 +1,3 @@
-/*
- * Range.h
- *
- *  Created on: 22.10.2013
- *      Author: Sebastian
- */
-
 #ifndef RANGE_H_
 #define RANGE_H_
 

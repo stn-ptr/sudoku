@@ -1,10 +1,3 @@
-/*
- * Board.cpp
- *
- *  Created on: 22.10.2013
- *      Author: Sebastian
- */
-
 #include "Board.h"
 
 //using namespace Sudoku;

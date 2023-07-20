@@ -1,10 +1,3 @@
-/*
- * Range.cpp
- *
- *  Created on: 22.10.2013
- *      Author: Sebastian
- */
-
 #include "Range.h"
 
 namespace Sudoku {

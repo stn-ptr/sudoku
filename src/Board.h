@@ -1,10 +1,3 @@
-/*
- * Board.h
- *
- *  Created on: 22.10.2013
- *      Author: Sebastian
- */
-
 #ifndef BOARD_H_
 #define BOARD_H_
 

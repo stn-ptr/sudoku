@@ -1,10 +1,3 @@
-/*
- * sudoku.cpp
- *
- *  Created on: 22.10.2013
- *      Author: Sebastian
- */
-
 #include <iostream>
 #include <fstream>
 #include <ctime>
